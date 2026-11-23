@@ -312,7 +312,7 @@ function App() {
       <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-8 sm:py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-700 text-xl text-white shadow-lg shadow-teal-500/20 sm:h-11 sm:w-11 sm:text-2xl">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-teal-500 to-cyan-700 text-xl text-white shadow-lg shadow-teal-500/20 sm:h-11 sm:w-11 sm:text-2xl">
               ♥
             </div>
 
@@ -338,12 +338,12 @@ function App() {
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-14">
         {/* Hero Section */}
-        <section className="relative mb-8 overflow-hidden rounded-3xl bg-gradient-to-br from-[#102b3f] via-[#124b5b] to-[#087e80] px-5 py-10 text-white shadow-2xl shadow-teal-900/15 sm:mb-10 sm:px-12 sm:py-16">
+        <section className="relative mb-8 overflow-hidden rounded-3xl bg-linear-to-br from-[#102b3f] via-[#124b5b] to-[#087e80] px-5 py-10 text-white shadow-2xl shadow-teal-900/15 sm:mb-10 sm:px-12 sm:py-16">
           {/* Background Effects */}
           <div className="absolute -right-10 top-10 h-72 w-72 rounded-full bg-teal-300/10 blur-3xl"></div>
           <div className="absolute bottom-0 left-1/2 h-40 w-40 rounded-full bg-blue-400/10 blur-3xl"></div>
-          <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-[35px] border-white/5"></div>
-          <div className="absolute -bottom-32 right-20 h-72 w-72 rounded-full border-[35px] border-white/5"></div>
+          <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-35 border-white/5"></div>
+          <div className="absolute -bottom-32 right-20 h-72 w-72 rounded-full border-35 border-white/5"></div>
 
           <div className="relative z-10 max-w-2xl">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-300/20 bg-white/10 px-3 py-1.5 backdrop-blur-sm sm:mb-6 sm:px-4 sm:py-2">
@@ -395,7 +395,7 @@ function App() {
         {/* Form Section */}
         <section className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-lg shadow-slate-200/40 transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-200/60">
           {/* Form Header */}
-          <div className="border-b border-slate-100 bg-gradient-to-r from-white to-teal-50/50 px-5 py-5 sm:px-9 sm:py-6">
+          <div className="border-b border-slate-100 bg-linear-to-r from-white to-teal-50/50 px-5 py-5 sm:px-9 sm:py-6">
             <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
               <div>
                 <div className="flex items-center gap-2">
@@ -484,8 +484,8 @@ function App() {
                 aria-live="polite"
                 className={`mb-7 animate-[fadeIn_0.4s_ease-out] rounded-2xl border p-5 motion-reduce:animate-none sm:p-6 ${
                   isHigh
-                    ? "border-red-200 bg-gradient-to-r from-red-50 to-rose-50"
-                    : "border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50"
+                    ? "border-red-200 bg-linear-to-r from-red-50 to-rose-50"
+                    : "border-emerald-200 bg-linear-to-r from-emerald-50 to-teal-50"
                 }`}
               >
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -539,7 +539,7 @@ function App() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex flex-1 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-teal-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-teal-700 hover:to-cyan-700 hover:shadow-xl hover:shadow-teal-600/25 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500/30 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                className="flex flex-1 items-center justify-center gap-3 rounded-xl bg-linear-to-r from-teal-600 to-cyan-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-teal-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-teal-700 hover:to-cyan-700 hover:shadow-xl hover:shadow-teal-600/25 focus:outline-none focus-visible:ring-4 focus-visible:ring-teal-500/30 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 {loading ? (
                   <>
@@ -568,7 +568,7 @@ function App() {
         </section>
 
         {/* Disclaimer */}
-        <footer className="mt-8 rounded-2xl border border-teal-100 bg-gradient-to-r from-teal-50 to-white p-4 shadow-sm sm:p-5">
+        <footer className="mt-8 rounded-2xl border border-teal-100 bg-linear-to-r from-teal-50 to-white p-4 shadow-sm sm:p-5">
           <div className="flex items-start gap-3">
             <span className="text-xl text-teal-600">ⓘ</span>
 
