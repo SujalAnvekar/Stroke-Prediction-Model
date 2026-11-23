@@ -193,7 +193,7 @@ function App() {
       <main className="mx-auto max-w-7xl px-5 py-10 sm:px-8">
 
         {/* Hero Section */}
-        <section className="relative mb-10 overflow-hidden rounded-3xl bg-gradient-to-br from-[#102b3f] via-[#124b5b] to-[#087e80] px-7 py-10 text-white shadow-xl shadow-teal-900/10 sm:px-12 sm:py-14">
+        <section className="relative mb-10 overflow-hidden rounded-3xl bg-linear-to-br from-[#102b3f] via-[#124b5b] to-[#087e80] px-7 py-10 text-white shadow-xl shadow-teal-900/10 sm:px-12 sm:py-14">
 
           <div className="relative z-10 max-w-2xl">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold tracking-wide text-teal-100">
@@ -233,8 +233,8 @@ function App() {
           </div>
 
           {/* Decorative circle */}
-          <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-[35px] border-white/5"></div>
-          <div className="absolute -bottom-32 right-20 h-72 w-72 rounded-full border-[35px] border-white/5"></div>
+          <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-35 border-white/5"></div>
+          <div className="absolute -bottom-32 right-20 h-72 w-72 rounded-full border-35 border-white/5"></div>
 
           <div className="absolute right-12 top-1/2 hidden -translate-y-1/2 items-center justify-center lg:flex">
             <div className="flex h-48 w-48 items-center justify-center rounded-full border border-white/15 bg-white/10 backdrop-blur-sm">
@@ -465,8 +465,8 @@ function App() {
           <section
             className={`mt-8 overflow-hidden rounded-3xl border p-7 sm:p-9 ${
               result.includes("High")
-                ? "border-red-200 bg-gradient-to-br from-red-50 to-white"
-                : "border-emerald-200 bg-gradient-to-br from-emerald-50 to-white"
+                ? "border-red-200 bg-linear-to-br from-red-50 to-white"
+                : "border-emerald-200 bg-linear-to-br from-emerald-50 to-white"
             }`}
           >
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
