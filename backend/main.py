@@ -55,7 +55,7 @@ class StrokeInput(BaseModel):
 
     avg_glucose_level: float = Field(gt=0,le=300)
 
-    bmi: float = Field(gt=0)
+    bmi: float = Field(gt=0,le=100)
 
     smoking_status: Literal[
         "Formerly Smoked",
