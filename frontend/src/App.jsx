@@ -115,9 +115,12 @@ function getError(field, value) {
 
   if (field.type === "number") {
     const n = Number(value);
+
     if (Number.isNaN(n)) return "Enter a valid number.";
+
     if (field.min !== undefined && n < field.min)
       return `Must be at least ${field.min}.`;
+
     if (field.max !== undefined && n > field.max)
       return `Must be ${field.max} or less.`;
   }
@@ -137,10 +140,13 @@ function App() {
 
   const errors = useMemo(() => {
     const out = {};
+
     fields.forEach((f) => {
       const msg = getError(f, form[f.name]);
+
       if (msg) out[f.name] = msg;
     });
+
     return out;
   }, [form]);
 
@@ -149,7 +155,10 @@ function App() {
   // Scroll to the result when it arrives
   useEffect(() => {
     if (result && resultRef.current) {
-      resultRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      resultRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   }, [result]);
 
@@ -167,7 +176,11 @@ function App() {
 
   const handleBlur = (e) => {
     const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
+
+    setTouched((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
   };
 
   const handleReset = () => {
@@ -182,15 +195,27 @@ function App() {
 
     // Validate before sending
     const firstBad = fields.find((f) => errors[f.name]);
+
     if (firstBad) {
-      setTouched(Object.fromEntries(fields.map((f) => [f.name, true])));
+      setTouched(
+        Object.fromEntries(fields.map((f) => [f.name, true]))
+      );
+
       setError("Please complete the highlighted fields to continue.");
 
       requestAnimationFrame(() => {
         const el = document.getElementById(firstBad.name);
-        el?.scrollIntoView({ behavior: "smooth", block: "center" });
-        el?.focus?.({ preventScroll: true });
+
+        el?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+
+        el?.focus?.({
+          preventScroll: true,
+        });
       });
+
       return;
     }
 
@@ -216,23 +241,27 @@ function App() {
 
       const data = await response.json();
 
+      // Handle API errors
       if (!response.ok) {
         throw new Error(
           data.detail
-            ? typeof data.detail === "string"
-              ? data.detail
-              : JSON.stringify(data.detail)
+            ? Array.isArray(data.detail)
+              ? data.detail.join(" ")
+              : data.detail
             : "Something went wrong. Please try again."
         );
       }
 
+      // Display prediction result
       setResult(data.result);
+
     } catch (err) {
       setError(
         err.message === "Failed to fetch"
           ? "Unable to connect to the server. Please make sure the backend is running."
           : err.message
       );
+
     } finally {
       setLoading(false);
     }
@@ -320,6 +349,7 @@ function App() {
               <h1 className="text-lg font-extrabold tracking-tight text-slate-900 sm:text-xl">
                 Stroke<span className="text-teal-600">Care</span>
               </h1>
+
               <p className="hidden text-[10px] font-medium tracking-widest text-slate-400 sm:block">
                 INTELLIGENT HEALTHCARE
               </p>
@@ -328,26 +358,35 @@ function App() {
 
           <div className="flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1.5 sm:py-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 motion-reduce:animate-none"></span>
+
             <span className="text-xs font-semibold text-emerald-700 sm:text-sm">
               <span className="sm:hidden">Online</span>
-              <span className="hidden sm:inline">Prediction System Online</span>
+              <span className="hidden sm:inline">
+                Prediction System Online
+              </span>
             </span>
           </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-14">
+
         {/* Hero Section */}
         <section className="relative mb-8 overflow-hidden rounded-3xl bg-linear-to-br from-[#102b3f] via-[#124b5b] to-[#087e80] px-5 py-10 text-white shadow-2xl shadow-teal-900/15 sm:mb-10 sm:px-12 sm:py-16">
+
           {/* Background Effects */}
           <div className="absolute -right-10 top-10 h-72 w-72 rounded-full bg-teal-300/10 blur-3xl"></div>
+
           <div className="absolute bottom-0 left-1/2 h-40 w-40 rounded-full bg-blue-400/10 blur-3xl"></div>
+
           <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-35 border-white/5"></div>
+
           <div className="absolute -bottom-32 right-20 h-72 w-72 rounded-full border-35 border-white/5"></div>
 
           <div className="relative z-10 max-w-2xl">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-300/20 bg-white/10 px-3 py-1.5 backdrop-blur-sm sm:mb-6 sm:px-4 sm:py-2">
               <span className="text-teal-300">✦</span>
+
               <span className="text-[10px] font-semibold tracking-wide text-teal-100 sm:text-xs">
                 MACHINE LEARNING POWERED ASSESSMENT
               </span>
@@ -394,6 +433,7 @@ function App() {
 
         {/* Form Section */}
         <section className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-lg shadow-slate-200/40 transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-200/60">
+
           {/* Form Header */}
           <div className="border-b border-slate-100 bg-linear-to-r from-white to-teal-50/50 px-5 py-5 sm:px-9 sm:py-6">
             <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
@@ -425,6 +465,7 @@ function App() {
             noValidate
             className="p-5 sm:p-9"
           >
+
             {/* Personal Details */}
             <div className="mb-8 sm:mb-9">
               <div className="mb-6 flex items-center gap-3">
@@ -432,6 +473,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-slate-900">Personal Details</h4>
+
                   <p className="text-xs text-slate-400">
                     Basic demographic information
                   </p>
@@ -452,6 +494,7 @@ function App() {
 
                 <div>
                   <h4 className="font-bold text-slate-900">Medical Details</h4>
+
                   <p className="text-xs text-slate-400">
                     Health-related information
                   </p>
