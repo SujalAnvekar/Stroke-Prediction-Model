@@ -53,7 +53,7 @@ class StrokeInput(BaseModel):
 
     Residence_type: Literal["Rural", "Urban"]
 
-    avg_glucose_level: float = Field(gt=0)
+    avg_glucose_level: float = Field(gt=0,le=300)
 
     bmi: float = Field(gt=0)
 
